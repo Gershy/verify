@@ -25,7 +25,9 @@ console.log('Params:', { protocol, host, port });
       ];
       
       console.log(lines.join('\n') + '\n');
-      fs.appendFile(out, lines.join('\n') + '...\n');
+      
+      if (![ '/queries', '/favicon.ico' ].contains(req.url))
+        fs.appendFile(out, lines.join('\n') + '...\n');
       
       serve(...args);
       console.log('');
