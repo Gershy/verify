@@ -18,8 +18,8 @@ let genCode = str => {
   
   await new Promise(r => window.addEventListener('load', r));
   
-  let [ content, input, submit ] =
-    [ '.content', '.input', '.submit' ].map(v => document.querySelector(v));
+  let [ content, input, submit ] = [ '.content', '.input', '.submit' ]
+    .map(v => document.querySelector(v));
   
   input.focus();
   
@@ -27,8 +27,7 @@ let genCode = str => {
   let attempts = 0;
   let doAttempt = async () => {
     
-    if (busy) return;
-    busy = true;
+    if (busy) return; else busy = true;
     
     attempts++;
     
@@ -55,18 +54,15 @@ let genCode = str => {
       
       let link = document.createElement('a');
       link.classList.add('link');
-      link.setAttribute('href', `details.html?code=${value}`);
-      link.textContent = 'Code verified';
+      link.setAttribute('href', `details.html?${value}`);
+      link.textContent = 'Ya, that fits';
       content.appendChild(link);
       
     }
     
   };
   
-  input.addEventListener('keydown', evt => {
-    if (busy) return evt.preventDefault();
-    evt.code === 'Enter' && doAttempt();
-  });
+  input.addEventListener('keydown', evt => busy ? evt.preventDefault() : (evt.code === 'Enter' && doAttempt()));
   submit.addEventListener('click', doAttempt);
   
 })();
