@@ -74,7 +74,7 @@ let hints = JSON['p' + String.fromCharCode(97) + String.fromCharCode(114) + 's' 
       
       let link = document.createElement('a');
       link.classList.add('link');
-      link.setAttribute('href', `details.html?${value}`);
+      link.setAttribute('href', `details?${value}`);
       link.textContent = 'Ya, that fits';
       content.appendChild(link);
       
