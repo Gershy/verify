@@ -1,0 +1,68 @@
+/* INSPECTING SOURCE WILL NOT HELP YOU NIBBA */
+
+@keyframes wrong {
+  
+  0% { background-color: rgba(255, 0, 0, 0); }
+  12.5% { background-color: rgba(255, 0, 0, 1); }
+  25.0% { background-color: rgba(255, 0, 0, 0); }
+  37.5% { background-color: rgba(255, 0, 0, 1); }
+  50.0% { background-color: rgba(255, 0, 0, 0); }
+  62.5% { background-color: rgba(255, 0, 0, 1); }
+  75.0% { background-color: rgba(255, 0, 0, 0); }
+  87.5% { background-color: rgba(255, 0, 0, 1); }
+  100.0% { background-color: rgba(255, 0, 0, 0); }
+  
+}
+@keyframes right {
+  
+  0% { background-color: rgba(75, 220, 75, 0); }
+  12.5% { background-color: rgba(75, 220, 75, 1); }
+  75.0% { background-color: rgba(75, 220, 75, 0); }
+  37.5% { background-color: rgba(75, 220, 75, 1); }
+  50.0% { background-color: rgba(75, 220, 75, 0); }
+  62.5% { background-color: rgba(75, 220, 75, 1); }
+  75.0% { background-color: rgba(75, 220, 75, 0); }
+  87.5% { background-color: rgba(75, 220, 75, 1); }
+  100.0% { background-color: rgba(75, 220, 75, 0); }
+  
+}
+
+html { font-family: monospace; }
+input { font-size: inherit; font-family: inherit; color: inherit; }
+
+.content {
+  position: absolute;
+  width: 600px; height: 600px;
+  margin-left: -300px; margin-top: -300px;
+  left: 50%; top: 50%;
+  box-shadow: 0 0 0 1px #000;
+  font-size: 300%;
+  text-align: center;
+  
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 1000ms;
+  
+}
+.content.wrong { animation-name: wrong; }
+.content.right { animation-name: right; }
+.content.wrong, .content.right { pointer-events: none; }
+
+.content > .title {
+  margin: 200px 0 30px;
+}
+.content > .input {
+  text-align: center;
+}
+.content > .submit {
+  display: block;
+  width: 200px;
+  padding: 10px 0;
+  margin: 30px auto 0 auto;
+  font-size: 80%;
+  cursor: pointer;
+  background-color: #ddd;
+}
+.content > .link { display: block; margin-top: 255px; }
+.content > .header { font-size: 90%; margin: 15px 0 10px; }
+.content > .paragraph { margin: 2px 0 2px 30px; font-size: 65%; text-align: left; text-indent: -20px; }
