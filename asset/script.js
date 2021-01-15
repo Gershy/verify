@@ -1,4 +1,4 @@
-console.log('INSPECTING SOURCE WILL NOT HELP YOU NIBBA');
+console.log('Looking for info in the source??');
 
 let genCode = str => {
   
@@ -13,6 +13,14 @@ let genCode = str => {
   return num;
   
 };
+let codedTarget = 590732789448;
+
+let chars = `abcdefghijklmnopqrstuvwxyzACBDEFGHIJKLMNOPQRSTUVWXYZ0123456789!.'=[]{}",${' '}`;
+let hints = JSON['p' + String.fromCharCode(97) + String.fromCharCode(114) + 's' + String.fromCharCode(101)](
+  `AU1SSFU1SSFU1SSFAEgNOwEFpCFAEiV3wEFnCFAE7UUV5PUNwEFnxrCFAEiPSSG]GNL0GSVJRLKGV10GEFnxoCFAEe5Z0LTGzGPTWLUL0YHISLwEFnxpCFAEbSLHZLwEFoCFAE{LZ1ZGM1JRwEFpxrCFAE'1JRGWHZZ3VYKZwwEFoCFAE]0G!a.e yfGMP0EFpCFAEfOYV3GTLGZVTLGU1TILYZwEFoxrCFAEagfGi]f[G]fEFqxrCC`
+  .split('')
+  .map(c => chars[(chars.indexOf(c) + (chars.length - 33)) % chars.length])
+  .join(''));
 
 (async () => {
   
@@ -29,17 +37,29 @@ let genCode = str => {
     
     if (busy) return; else busy = true;
     
-    attempts++;
-    
     let { value } = input;
     let code = genCode(value);
-    let correct = code === 590732789448;
+    let correct = code === codedTarget;
     
     content.classList.add(correct ? 'right' : 'wrong');
     
-    await new Promise(r => setTimeout(r, 1000));
+    let hint = hints[Math.min(attempts++, hints.length - 1)];
+    let hintElem = null;
+    if (!correct && hint) {
+      
+      let [ text, n ] = hint;
+      hintElem = document.createElement('div');
+      hintElem.classList.add('hint');
+      hintElem.textContent = text;
+      hintElem.style.fontSize = `calc(10px + ${(100 * n).toFixed(3)}%)`;
+      content.parentNode.appendChild(hintElem);
+      
+    }
+    
+    await new Promise(r => setTimeout(r, 1400));
     
     busy = false;
+    hintElem && hintElem.remove();
     content.classList.remove('right');
     content.classList.remove('wrong');
     
