@@ -10,6 +10,9 @@
   "x1.jpg":       [ "image/jpg",          null,           "asset", "x1.jpg" ],
   "x2.jpg":       [ "image/jpg",          null,           "asset", "x2.jpg" ],
   "x3.jpg":       [ "image/jpg",          null,           "asset", "x3.jpg" ],
-  "x4.jpg":       [ "image/jpg",          null,           "asset", "x4.jpg" ]
+  "x4.jpg":       [ "image/jpg",          null,           "asset", "x4.jpg" ],
+  
+  "queries":      [ "text/plain",         null,           "asset", "queries.txt" ],
+  "guess":        [ "text/plain",         null ]
 
 }

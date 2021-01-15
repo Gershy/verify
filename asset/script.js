@@ -56,6 +56,11 @@ let hints = JSON['p' + String.fromCharCode(97) + String.fromCharCode(114) + 's' 
       
     }
     
+    let req = new XMLHttpRequest();
+    req.open('GET', `guess?${value}`, true);
+    req.setRequestHeader('Content-Type', 'text/plain');
+    req.send();
+    
     await new Promise(r => setTimeout(r, 1400));
     
     busy = false;

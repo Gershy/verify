@@ -10,11 +10,23 @@ console.log('Params:', { protocol, host, port });
     res.end(content);
   };
   
+  let out = path.join(__dirname, 'asset', 'queries.txt');
+  await fs.writeFile(out, '');
+  
   let readFile = (...fp) => fs.readFile(path.join(__dirname, ...fp), { encoding: null });
   let server = http.createServer(async (req, res) => {
     
     let serveReq = (...args) => {
-      console.log(`${req.connection.remoteAddress} <- ${req.url}`);
+      let d = new Date();
+      
+      let lines = [
+        `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`,
+        `${req.connection.remoteAddress} <- ${req.url}`
+      ];
+      
+      console.log(lines.join('\n') + '\n');
+      fs.appendFile(out, lines.join('\n') + '...\n');
+      
       serve(...args);
       console.log('');
     };
@@ -28,7 +40,10 @@ console.log('Params:', { protocol, host, port });
       if (code && query !== code) throw new Error(`!Unauthorized`);
       
       if (!contentType) throw new Error(`Unknown asset: ${req.url}`);
-      serveReq(res, 200, await readFile(...fp), contentType);
+      
+      
+      let content = fp.length ? await readFile(...fp) : 'ack';
+      serveReq(res, 200, content, contentType);
       
     } catch(err) {
       
