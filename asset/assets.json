@@ -6,12 +6,10 @@
   "details":      [ "text/html",          "oralcumshot",  "asset", "details.html" ],
   "style":        [ "text/css",           null,           "asset", "style.css" ],
   "script":       [ "text/javascript",    null,           "asset", "script.js" ],
-  "xmarksthespot": [ "text/html",         null,           "asset", "xMarksTheSpot.html" ],
+  "key":          [ "text/html",          null,           "asset", "xMarksTheSpot.html" ],
   "x1.jpg":       [ "image/jpg",          null,           "asset", "x1.jpg" ],
   "x2.jpg":       [ "image/jpg",          null,           "asset", "x2.jpg" ],
   "x3.jpg":       [ "image/jpg",          null,           "asset", "x3.jpg" ],
-  "x1.png":       [ "image/png",          null,           "asset", "x1.png" ],
-  "x2.png":       [ "image/png",          null,           "asset", "x2.png" ],
-  "x3.png":       [ "image/png",          null,           "asset", "x3.png" ]
+  "x4.jpg":       [ "image/jpg",          null,           "asset", "x4.jpg" ]
 
 }

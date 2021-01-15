@@ -49,14 +49,15 @@ input { font-size: inherit; font-family: inherit; color: inherit; }
   
 }
 .content.big {
+  background-color: #000;
   width: 100%; height: 100%;
   margin-left: 0; margin-top: 0;
   left: 0; top: 0;
   overflow-y: auto;
 }
 .content.big img {
-  margin-top: 30px;
-  width: 60%;
+  margin: 40px 0 40px;
+  width: 80%;
 }
 .content.wrong { animation-name: wrong; }
 .content.right { animation-name: right; }
@@ -97,4 +98,5 @@ input { font-size: inherit; font-family: inherit; color: inherit; }
 }
 .content > .link { display: block; margin-top: 255px; }
 .content > .header { font-size: 90%; margin: 15px 0 10px; }
-.content > .paragraph { margin: 8px 0 8px 30px; font-size: 65%; text-align: left; text-indent: -20px; }
+.content > .paragraph { margin: 8px 0 8px 30px; font-size: 58%; text-align: left; text-indent: -20px; }
+.content > .paragraph:last-child { margin-top: 30px; font-style: italic; font-size: 90%; }
